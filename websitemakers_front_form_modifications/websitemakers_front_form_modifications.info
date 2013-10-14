@@ -1,0 +1,10 @@
+name = Website Makers Front Page Form Modifications
+dependencies[] = "front_page"
+description = Modifications to Front Page forms for Website Makers websites. This is a workaround for an incompatibility problem between Front Page and JQuery Update.
+package = Website Makers
+project = "websitemakers_front_form_modifications"
+project status url = "http://fserver.findmycity.info/fserver"
+
+core = 7.x
+
+files[] = websitemakers_front_form_modifications.module

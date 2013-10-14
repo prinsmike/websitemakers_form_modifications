@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Implements hook_help().
+ */
+function websitemakers_front_form_modifications_help($path, $arg) {
+  if ($path == 'admin/help#websitemakers-front-form-modifications') {
+    return t('Provides modifications to Front Page forms. This is a workaround for an incompatibility problem between Front Page and JQuery Update.');
+  }
+}
+
+function websitemakers_front_form_modifications_form_alter(&$form, &$form_state, $form_id) {
+	if ($form_id == 'front_page_admin') {
+		for ($i = 1; array_key_exists($i, $form['roles']); $i++) {
+			$form['roles'][$i]['#collapsed'] = FALSE;
+		}
+	}
+}

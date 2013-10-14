@@ -1,0 +1,64 @@
+<?php
+
+/**
+ * Implements hook_help().
+ */
+function websitemakers_domain_form_modifications_help($path, $arg) {
+  if ($path == 'admin/help#websitemakers-domain-form-modifications') {
+    return t('Provides modifications to Domain Access forms.');
+  }
+}
+
+function websitemakers_domain_form_modifications_form_alter(&$form, &$form_state, $form_id) {
+	if ($form_id == 'business_node_form') {
+		$domain = domain_get_domain();
+		$domain = $domain['domain_id'];
+		
+		$domain_defaults = array();
+		$domain_defaults[1] = 1;
+		$domain_defaults[$domain] = $domain;
+
+		$form['domain']['#title'] = 'Location options';
+		$form['domain']['domain_site']['#type'] = 'hidden';
+		$form['domain']['domain_site']['#default_value'] = 0;
+
+		//$form['domain']['domains']['#type'] = 'multiselect';
+		$form['domain']['domains']['#title'] = 'Locations';
+		$form['domain']['domains']['#description'] = 'Select all the locations where your business operates.';		
+		$form['domain']['domains'][1]['#disabled'] = TRUE;
+		$form['domain']['domains'][1]['#default_value'] = 1;
+
+		$form['domain']['domains']['#default_value'] = $domain_defaults;	
+
+		$form['domain']['domain_source']['#default_value'] = $domain;
+		$form['domain']['domain_source']['#title'] = 'Main office';
+		$form['domain']['domain_source']['#description'] = 'Select the primary location from where your business operates.';
+	}
+
+	if ($form_id == 'event_node_form') {
+		$domain = domain_get_domain();
+		$domain = $domain['domain_id'];
+		
+		$domain_defaults = array();
+		$domain_defaults[1] = 1;
+		$domain_defaults[$domain] = $domain;
+
+		$form['domain']['#title'] = 'Location options';
+		$form['domain']['#collapsed'] = TRUE;
+		$form['domain']['domain_site']['#type'] = 'hidden';
+		$form['domain']['domain_site']['#default_value'] = 0;
+
+		//$form['domain']['domains']['#type'] = 'multiselect';
+		$form['domain']['domains']['#title'] = 'Locations';
+		$form['domain']['domains']['#description'] = 'The locations where this event will be published.';		
+		$form['domain']['domains']['#disabled'] = TRUE;
+		$form['domain']['domains'][1]['#default_value'] = 1;
+
+		$form['domain']['domains']['#default_value'] = $domain_defaults;	
+
+		$form['domain']['domain_source']['#default_value'] = $domain;
+		$form['domain']['domain_source']['#title'] = 'Event location';
+		$form['domain']['domain_source']['#description'] = 'The location where this event is taking place.';
+		$form['domain']['domain_source']['#disabled'] = TRUE;
+	}
+}

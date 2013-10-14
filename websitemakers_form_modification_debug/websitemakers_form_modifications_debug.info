@@ -1,0 +1,10 @@
+name = Website Makers Form Modifications Debug
+dependencies[] = "devel"
+description = Debug info for forms.
+package = Website Makers
+project = "websitemakers_form_modifications_debug"
+project status url = "http://fserver.findmycity.info/fserver"
+
+core = 7.x
+
+files[] = websitemakers_form_modifications_debug.module
