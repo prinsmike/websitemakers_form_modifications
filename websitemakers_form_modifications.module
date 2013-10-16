@@ -12,6 +12,8 @@ function websitemakers_form_modifications_help($path, $arg) {
 function websitemakers_form_modifications_form_alter(&$form, &$form_state, $form_id) {
 	if ($form_id == 'business_node_form') {
 		$form['field_address']['und'][0]['locality_block']['administrative_area']['#title'] = 'Province';
+	} else if ($form_id == 'event_node_form') {
+		$form['field_address']['und'][0]['locality_block']['administrative_area']['#title'] = 'Province';
 	} else if ($form_id == 'views_exposed_form') {
 		if ($form['#id'] == 'views-exposed-form-business-directory-page') {
 			$form['#action'] = url('business-directory');
