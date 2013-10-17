@@ -66,5 +66,15 @@ function websitemakers_domain_form_modifications_form_alter(&$form, &$form_state
 }
 
 function _websitemakers_domain_form_modifications_validate($form, &$form_state) {
-	
+	if (!in_array(1, $form_state['values']['domains'])) {
+		$form_state['values']['domains'][] = 1;
+	}
+	if (count($form_state['values']['domains'] < 2) {
+		form_set_error('domains', 
+          t('You must select at least one location inside South Africa'));
+	}
+	if ($form_state['values']['domain_source'] == 1) {
+		form_set_error('domain_source', 
+          t('You must select a location in South Africa for your main office.'));
+	}
 }
