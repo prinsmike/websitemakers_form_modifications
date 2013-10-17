@@ -12,5 +12,5 @@ function websitemakers_form_modifications_debug_help($path, $arg) {
 function websitemakers_form_modifications_debug_form_alter(&$form, &$form_state, $form_id) {
 	dsm($form_id);
 	dsm($form);
-	//dsm($form_state);
+	dsm($form_state);
 }

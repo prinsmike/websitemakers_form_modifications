@@ -33,6 +33,8 @@ function websitemakers_domain_form_modifications_form_alter(&$form, &$form_state
 		$form['domain']['domain_source']['#default_value'] = $domain;
 		$form['domain']['domain_source']['#title'] = 'Main office';
 		$form['domain']['domain_source']['#description'] = 'Select the primary location from where your business operates.';
+
+		$form['#validate'][] = '_websitemakers_domain_form_modifications_validate';
 	}
 
 	if ($form_id == 'event_node_form') {
@@ -61,4 +63,8 @@ function websitemakers_domain_form_modifications_form_alter(&$form, &$form_state
 		$form['domain']['domain_source']['#description'] = 'The location where this event is taking place.';
 		//$form['domain']['domain_source']['#disabled'] = TRUE;
 	}
+}
+
+function _websitemakers_domain_form_modifications_validate($form, &$form_state) {
+	
 }
