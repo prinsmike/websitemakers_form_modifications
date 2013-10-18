@@ -16,6 +16,7 @@ function websitemakers_form_modifications_debug_form_alter(&$form, &$form_state,
 	dsm('$base_path: '.$base_path);
 	dsm('$base_root: '.$base_root);
 	dsm('$base_url: '.$base_url);
+	dsm('current_path(): '.current_path());
 	dsm($form_id);
 	dsm($form);
 	dsm($form_state);
