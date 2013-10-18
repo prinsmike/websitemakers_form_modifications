@@ -10,6 +10,8 @@ function websitemakers_form_modifications_debug_help($path, $arg) {
 }
 
 function websitemakers_form_modifications_debug_form_alter(&$form, &$form_state, $form_id) {
+	dsm('$base_path: '.$base_path);
+	dsm('$base_root: '.$base_root);
 	dsm($form_id);
 	dsm($form);
 	dsm($form_state);
