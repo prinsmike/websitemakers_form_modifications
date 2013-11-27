@@ -12,7 +12,6 @@ function websitemakers_domain_form_modifications_help($path, $arg) {
 function websitemakers_domain_form_modifications_form_alter(&$form, &$form_state, $form_id) {
 	if ($form_id == 'business_node_form') {
 		$domain = domain_get_domain();
-		dsm($domain);
 		$domain = $domain['domain_id'];
 		
 		$domain_defaults = array();
@@ -29,7 +28,7 @@ function websitemakers_domain_form_modifications_form_alter(&$form, &$form_state
 		$form['domain']['domains'][1]['#disabled'] = TRUE;
 		$form['domain']['domains'][1]['#default_value'] = 1;
 
-		$form['domain']['domains']['#default_value'] = $domain_defaults;	
+		$form['domain']['domains']['#default_value'] = (isset($form['#node']->domains)) ? $form['#node']->domains : $domain_defaults;
 
 		$form['domain']['domain_source']['#default_value'] = $domain;
 		$form['domain']['domain_source']['#title'] = 'Main office';
