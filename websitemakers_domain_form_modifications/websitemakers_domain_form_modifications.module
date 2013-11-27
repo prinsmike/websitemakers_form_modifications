@@ -67,8 +67,9 @@ function websitemakers_domain_form_modifications_form_alter(&$form, &$form_state
 
 function _websitemakers_domain_form_modifications_validate($form, &$form_state) {
 	if (!in_array(1, $form_state['values']['domains'])) {
-		$form_state['values']['domains'][] = 1;
+		$form_state['values']['domains'][1] = 1;
 	}
+	dsm($form_state['values']['domains']);
 	if (count($form_state['values']['domains'] < 2)) {
 		form_set_error('domains', 
           t('You must select at least one location inside South Africa'));
