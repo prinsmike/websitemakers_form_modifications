@@ -12,8 +12,8 @@ function websitemakers_domain_form_modifications_help($path, $arg) {
 function websitemakers_domain_form_modifications_form_alter(&$form, &$form_state, $form_id) {
 	if ($form_id == 'business_node_form') {
 		$domain = domain_get_domain();
-		$domain = $domain['domain_id'];
 		dsm($domain);
+		$domain = $domain['domain_id'];
 		
 		$domain_defaults = array();
 		$domain_defaults[1] = 1;
