@@ -63,6 +63,11 @@ function websitemakers_domain_form_modifications_form_alter(&$form, &$form_state
 		$form['domain']['domain_source']['#description'] = 'The location where this event is taking place.';
 		//$form['domain']['domain_source']['#disabled'] = TRUE;
 	}
+
+	if ($form_id == 'domain_content_admin') {
+		$form['domain']['domain_site']['#default_value'] = FALSE;
+		$form['domain']['domains']['#default_value'][1] = 1;
+	}
 }
 
 function _websitemakers_domain_form_modifications_validate($form, &$form_state) {
