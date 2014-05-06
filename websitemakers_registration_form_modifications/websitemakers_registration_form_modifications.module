@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * Implements hook_help().
+ */
+function websitemakers_registration_form_modifications_help($path, $arg) {
+  if ($path == 'admin/help#websitemakers-registration-form-modifications') {
+    return t('Provides modifications to user registration and login forms.');
+  }
+}
+
+function websitemakers_registration_form_modifications_form_alter(&$form, &$form_state, $form_id) {
+	if ($form_id == 'user_login') {
+		
+		unset($form['name']['#description']);
+		unset($form['pass']['#description']);
+		
+	}
+
+	if ($form_id == 'user_register_form') {
+		unset($form['account']['mail']['#description']);
+		unset($form['account']['pass']['#description']);
+		$form['profile_main']['#weight'] = -20;
+	}
+}

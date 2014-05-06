@@ -1,0 +1,8 @@
+name = Website Makers Registration Forms Modifications
+description = Modifications to registration and log in forms for Website Makers websites.
+package = Website Makers
+project = "websitemakers_registration_form_modifications"
+
+core = 7.x
+
+files[] = websitemakers_registration_form_modifications.module
