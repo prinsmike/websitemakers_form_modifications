@@ -20,6 +20,6 @@ function websitemakers_registration_form_modifications_form_alter(&$form, &$form
 	if ($form_id == 'user_register_form') {
 		unset($form['account']['mail']['#description']);
 		unset($form['account']['pass']['#description']);
-		$form['profile_main']['#weight'] = -20;
+		$form['profile_main']['#title'] = '';
 	}
 }
